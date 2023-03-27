@@ -89,7 +89,7 @@ const LoginForm = ({history}) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-            <Typography variant='h5'>Login</Typography>
+            <Typography variant='h5' style={{margin: '1rem'}}>Login</Typography>
             <Container sx={{ ...style.root }} >
                 <Grid item sx={{ ...style.formWrap }}>
                     <Item>

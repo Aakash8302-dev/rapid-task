@@ -39,8 +39,11 @@ const AuthScreen = () => {
 
   return (
     <div style={{...style.root}}>
-        {
-            renderSwitch(screen)
+        {   
+            <div style={{marginTop: "5rem"}}>
+                { renderSwitch(screen)}
+            </div>
+           
         }
         <div style={{margin: "0.6rem"}}>
             {

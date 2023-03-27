@@ -89,7 +89,7 @@ const RegisterForm = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-            <Typography variant='h5'>Register</Typography>
+            <Typography variant='h5' style={{margin: '1rem'}}>Register</Typography>
             <Container sx={{ ...style.root }} >
                 <Grid item sx={{ ...style.formWrap }}>
                     <Item>
