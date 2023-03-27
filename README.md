@@ -3,11 +3,10 @@ React
 Nodejs
 MongoDB
 Express.js
-```
+
 MERN stack application
 
 ## Project Setup
-```
 Clone the repository to your local system
 git clone https://github.com/Aakash8302-dev/rapid-task.git
 
