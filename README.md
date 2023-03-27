@@ -10,6 +10,7 @@ MERN stack application
 Clone the repository to your local system
 git clone https://github.com/Aakash8302-dev/rapid-task.git
 
+```
 Navigate to the cloned repo
 cd rapid-task/
 
