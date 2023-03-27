@@ -1,8 +1,8 @@
 ## Teck Stack Used
-###React 
-###Nodejs
-###MongoDB
-###Express.js
+React 
+Nodejs
+MongoDB
+Express.js
 
 ## Project Setup
 ```
