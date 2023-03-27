@@ -1,3 +1,9 @@
+## Teck Stack Used
+###React 
+###Nodejs
+###MongoDB
+###Express.js
+
 ## Project Setup
 ```
 Clone the repository to your local system
