@@ -4,7 +4,9 @@ const User = require('../models/userModel.js')
 const Issue = require('../models/IssueModel.js')
 const generateToken = require('../utils/generateToken.js')
 
-
+// @desc Get All users from DB
+// @route GET /api/users
+// @access Public
 const getAllUsers = asyncHandler(async(req,res)=>{
     try {
         const users = await User.find({})
@@ -18,6 +20,9 @@ const getAllUsers = asyncHandler(async(req,res)=>{
     }
 })
 
+// @desc register a new user
+// @route POST /api/users/register
+// @access Public
 const registerUser = asyncHandler(async(req,res) => {
     try {
         const {name, username, password} = req.body
@@ -52,17 +57,23 @@ const registerUser = asyncHandler(async(req,res) => {
 }) 
 
 
+// @desc login user
+// @route POST /api/users/login
+// @access Public
 const loginUser = asyncHandler(async (req,res) => {
     try {
 
         const {username, password} = req.body;
 
+        // check if user already exists
         const user = await User.findOne({username:username}).select('+password');
         if(!user){
             throw new Error("user does not exists");
         }
 
+        //verify the password
         const isMatch = await user.matchPassword(password);
+
 
         if(!isMatch){
             res.json({
@@ -91,7 +102,9 @@ const loginUser = asyncHandler(async (req,res) => {
 
 })
 
-
+// @desc Create a new Issue
+// @route POST /api/users/issue
+// @access Protected
 const createIssue = asyncHandler(async(req,res)=>{
     try {
         const {issue, title} = req.body;
@@ -119,6 +132,11 @@ const createIssue = asyncHandler(async(req,res)=>{
     }
 })
 
+
+
+// @desc Add comments to issue
+// @route PUT /api/users/issue/:id
+// @access Protected
 const addComments = asyncHandler(async (req,res)=>{
     try {
         
@@ -155,6 +173,9 @@ const addComments = asyncHandler(async (req,res)=>{
     }
 })
 
+// @desc Update likes to issue
+// @route PUT /api/users/issue/:id/addlike
+// @access Protected
 const addLike = asyncHandler(async (req,res)=>{
     try {
         const issueId = req.params.id
@@ -184,6 +205,10 @@ const addLike = asyncHandler(async (req,res)=>{
     }
 })
 
+
+// @desc get all Issues
+// @route GET /api/users/issue/
+// @access Protected
 const getAllIssues = asyncHandler(async (req,res)=> {
     const issues = await Issue.find({});
 

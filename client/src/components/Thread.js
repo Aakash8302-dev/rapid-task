@@ -35,6 +35,8 @@ const Thread = ({id,issue,user,comments, likes, title}) => {
     const [users,setUsers] = useState([]);
     const [login, setLogin] = useState(null);
 
+
+    //Checks if user Logged In and updates state
     useEffect(()=>{
         if(localStorage.getItem("user") && localStorage.getItem("user")){
             setLogin(JSON.parse(localStorage.getItem('user')))
@@ -46,11 +48,13 @@ const Thread = ({id,issue,user,comments, likes, title}) => {
        
     },[])
 
+    //Function to get All Users from database
     const getAllUsers = async() => {
         const {data} = await axios.get('/api/user/')
         setUsers(data);
     }
 
+    //Functions handles to add new Comment to an Issue/Post
     const handleAddComment = async () => {
         let comment = cmt
         const {data} = await axios.put(`/api/user/issue/${id}`,{comment}, {
@@ -64,6 +68,7 @@ const Thread = ({id,issue,user,comments, likes, title}) => {
         }
     }
 
+    //Switches between add comment and normal state
     const handleCommentInput = (e) => {
        e.target.value.length > 0 ? setBtn(true) : setBtn(false)
        setCmt(e.target.value);
@@ -80,6 +85,8 @@ const Thread = ({id,issue,user,comments, likes, title}) => {
         return name
     }
 
+
+    //Function handles upvotes of User
     const handleUpvote = async () => {
 
         if(login.token){

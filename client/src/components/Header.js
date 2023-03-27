@@ -17,6 +17,7 @@ export default function Header() {
 
   const [login, setLogin] = useState(null);
 
+  // Check if user is logged In and state is updates
   useEffect(()=> {
     if(localStorage.getItem("user")){
       setLogin(JSON.parse(localStorage.getItem("user")))
@@ -31,6 +32,8 @@ export default function Header() {
     setAnchorEl(null);
   };
 
+
+  //Removes user token to logout
   const handleLogout = () => {
     localStorage.removeItem("user")
     setLogin(null)

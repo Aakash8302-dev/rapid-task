@@ -35,12 +35,14 @@ const RegisterForm = () => {
     const [login, setLogin] = useState(false)
     const navigate = useNavigate();
 
+    //Checks if User Logged In and updates State
     useEffect(()=>{
         if(localStorage.getItem('user') && window.localStorage.getItem('user').length>0){
             navigate('/')
         }
     },[login])
 
+    // Validates username name and password values
     const validate = () => {
         let temp = {}
         temp.username = (/^[a-z0-9]+$/i.test(values.username)) ? "" : "Enter valid username"
@@ -56,7 +58,7 @@ const RegisterForm = () => {
 
     const { values, setValues, errors, setErrors, handleInputChange } = useForm(initialValues)
 
-    
+    // Method to handle user Registration
     const handleSubmit = async (e) => {
         e.preventDefault();
 

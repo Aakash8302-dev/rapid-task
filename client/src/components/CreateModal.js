@@ -29,6 +29,8 @@ const CreateModal = ({open,handleOpen, handleClose}) => {
     const [title, setTitle] = useState("");
     const [login, setLogin] = useState(null)
 
+
+    //check if user is logged In and updates state
     useEffect(()=>{
         if(localStorage.getItem("user") && localStorage.getItem("user")){
             setLogin(JSON.parse(localStorage.getItem('user')))
@@ -36,6 +38,8 @@ const CreateModal = ({open,handleOpen, handleClose}) => {
         }
     },[])
 
+
+    // Create a new Issue/Post
     const handleSubmit = async() => {
         const config = {
             headers: {

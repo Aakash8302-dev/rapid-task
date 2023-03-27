@@ -35,12 +35,15 @@ const LoginForm = ({history}) => {
     const [showPassword, setShowPassword] = useState(true);
     const [login, setLogin] = useState(false)
 
+    //Checks if user Logged In and updates state
     useEffect(()=>{
         if(localStorage.getItem('user') && localStorage.getItem('user').length>0){
-           
+           setLogin(JSON.parse(localStorage.getItem('user')))
         }
     },[login])
 
+
+    // Validates the username and password valuess
     const validate = () => {
         let temp = {}
         temp.username = (/^[a-z0-9]+$/i.test(values.username)) ? "" : "Enter valid username"
@@ -55,7 +58,7 @@ const LoginForm = ({history}) => {
 
     const { values, setValues, errors, setErrors, handleInputChange } = useForm(initialValues)
 
-    
+    // Method handles Login 
     const handleSubmit = async (e) => {
         e.preventDefault();
 

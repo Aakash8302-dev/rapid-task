@@ -55,7 +55,7 @@ const Search = styled('div')(({ theme }) => ({
   }));
 
 const HomeScreen = () => {
-
+    
     const navigate = useNavigate();
  
     const [issues, setIssue] = useState({})
@@ -68,6 +68,7 @@ const HomeScreen = () => {
         getIssues();
     },[])
 
+// Function which returns all Issues in Database
 const getIssues = async () => {
     const config = {
         headers: {
@@ -80,6 +81,7 @@ const getIssues = async () => {
     setIssueCopy(data);
 }
 
+//Redirects to login page if user data is not available
 const handlePostIssue = () => {
     if(!localStorage.getItem('user')){
         navigate('/auth')
@@ -88,6 +90,9 @@ const handlePostIssue = () => {
     }
 }
 
+// Function to Rank Issue Threads based on Upvotes and Comments
+//Priority value is calculated by: Priority_value = Number_of_likes/3 + Number_of_comments
+//Issue Threads are Sorted in descending order based on Priority value
 const rankThreads = (arr) => {
     arr.map(ele => {
         ele.priority = ele.likes/3 + ele.comments.length
@@ -96,6 +101,8 @@ const rankThreads = (arr) => {
     return 1;
 }
 
+
+// Function which handles Search
 const handleSearch = (e) => {
 
     let newArr = []

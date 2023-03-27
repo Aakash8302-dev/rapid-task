@@ -13,6 +13,7 @@ const style = {
     }
 } 
 
+// Renders Login Form or Register based on input
 const renderSwitch = (param) => {
     switch(param){
         case "a1":
