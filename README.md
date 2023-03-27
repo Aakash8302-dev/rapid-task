@@ -3,6 +3,8 @@ React
 Nodejs
 MongoDB
 Express.js
+```
+MERN stack application
 
 ## Project Setup
 ```
