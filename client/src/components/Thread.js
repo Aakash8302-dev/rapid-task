@@ -25,7 +25,7 @@ const style = {
     }
 }
 
-const Thread = ({id,issue,user,comments, likes, title}) => {
+const Thread = ({id,issue,user,comments, likes, title, time}) => {
 
     const navigate = useNavigate();
 
@@ -111,7 +111,11 @@ const Thread = ({id,issue,user,comments, likes, title}) => {
 
   return (
     <Paper key={id} sx={{...style.root}} elevation={3}>
-        <Typography variant='subtitle2'>Asked by : {getUserName(user)}</Typography>
+        <div>
+            <Typography variant='subtitle2'>Asked by : {getUserName(user)}</Typography>
+            <Typography variant='subtitle2'>{Date(time).split("GMT")[0]}</Typography>
+        </div>
+        
         <Typography variant='h6' style={{margin:'0.5rem 0'}}>{title}</Typography>
         <Box style={{...style.issueContent}}>
             <Typography variant='p' style={{whiteSpace:'pre-wrap'}}>{issue}</Typography>

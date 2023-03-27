@@ -148,7 +148,7 @@ const handleSearch = (e) => {
                         <Typography variant='h6' sx={{margin: "1rem 0"}}>Latest</Typography>
                         {
                             issuesCopy && issuesCopy.length ? issuesCopy.reverse().map((ele) => (
-                                <Thread key={ele._id} id={ele._id} title={ele.title} likes={ele.likes} comments={ele.comments} user={ele.user} issue={ele.issue} />
+                                <Thread key={ele._id} id={ele._id} title={ele.title} likes={ele.likes} comments={ele.comments} user={ele.user} issue={ele.issue} time={ele.createdAt} />
                             )) : <Loader />
                         }
                     </Grid>
